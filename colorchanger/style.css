@@ -1,0 +1,38 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(6, .1fr);
+    
+
+    /* grid-template-columns: .1fr .1fr .1fr .1fr .1fr ; */
+    /* grid-template-rows: repeat(6fr 1fr); */
+}
+#home{
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 3px;
+    background-color: white;
+}
+.container button{
+    height: 50px;
+    
+}
+#red{
+    background-color: red;
+}
+#blue{
+    background-color: blue;
+}
+#yellow{
+    background-color: yellow;
+}
+#green{
+    background-color: green;
+}
+#purple{
+    background-color: purple;
+}
+#black{
+    background-color: black;
+}

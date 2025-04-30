@@ -1,0 +1,32 @@
+body{
+    background-color: rgb(36, 34, 34);
+    /* background: linear-gradient(to right,#56021F #7D1C4A); */
+}
+h1{
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+}
+.pro1{
+    background-color: aliceblue;
+    font-size: larger;
+    font-weight: bold;
+    /* display: grid; */
+    /* grid-template-columns: 2fr 2fr 2fr; */
+    /* grid-gap: 10px; */
+    width: 300px;
+    height: 40px;
+    padding: 15px 15px;
+    border-radius: 5px;
+    margin: 5px;
+}
+.pro1 a{
+    text-decoration: none;
+    color: black;
+    
+}
+.pro1 a span:hover{
+    color: red;
+}

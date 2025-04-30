@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BgChanger</title>
+    <style>
+        #bg-changer{
+            position: absolute;
+            top: 100px;
+            left: 430px;
+            background-color: transparent;
+            transition: background-color 1s ease-in-out;
+            /* border: 2px solid #333; */
+        }
+        #bg-changer h1{
+            font-size: 3rem;
+            color: #333;
+            text-shadow: black 0px 0px 5px;
+        }
+        #bg-changer button{
+            padding: 10px 20px;
+            position: relative;
+            left: 120px;
+            /* align-items: center; */
+            font-size: 1rem;
+            margin: 5px;
+            /* border: none; */
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="bg-changer">
+        <h1>Background Color Changer</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    </div>
+
+    <script>
+        const h1 = document.querySelector('h1');
+        const body = document.querySelector('body');
+const randomColor = function(){
+    let hex = "0123456789ABCDEF";
+    let color = '#';
+    for(let i = 0; i < 6; i++){
+        color += hex[Math.floor(Math.random()*16)]
+    }
+    return color;
+
+}
+
+let  change;
+document.querySelector('#start').addEventListener('click',function(){
+    let startChangeBg = function(){ 
+        if(body.style.background == 'white'){
+          h1.style.color = 'black';
+          h1.style.textShadow = 'none';
+      }
+      else{
+            h1.style.color = 'white';
+        }
+        document.body.style.background = randomColor();}
+      change = setInterval(startChangeBg,1000);
+})
+document.querySelector('#stop').addEventListener('click',function(){
+    clearInterval(change);
+})
+
+    </script>
+</body>
+</html>

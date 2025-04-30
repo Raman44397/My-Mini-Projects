@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextArea</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 90vh;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+        }
+        h1{
+            margin-bottom: 40px;
+            border-bottom: 2px solid #333;
+        }
+        #text-count{
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Area Character Count</h1>
+    <div id="main">
+        <textarea id="textArea" rows="7" cols="35" placeholder="Enter your text"></textarea>
+        <p id="text-count">The Current Count is : <span>0</span></p>
+    </div>
+
+
+    <script>
+       
+        const textArea = document.getElementById("textArea");
+        const textCount = document.getElementById("text-count");
+
+        textArea.addEventListener("input", function(e){
+           
+            const text = e.target.value.length;
+            // if(e.target.value === ''){
+            //     textCount.textContent = "The Character Count is : 0";
+            // }else{
+            //     textCount.textContent = `The Character Count is : ${text}`;
+            // }
+            const length = e.target.value.length;
+            textCount.textContent = `The Character Count is : ${length}`;
+            
+        });
+            
+    </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 const main = document.getElementById('main');
 const dragDrop = document.getElementById('drag-drop');
-const dragedFile = document.getElementById('draged-file');
+const draggedFile = document.getElementById('dragged-file');
 const fileInfo = document.getElementById('file-info');
 const submitBtn = document.getElementById('submit-btn');
 const selectFileBtn = document.getElementById('select-file-btn');
@@ -8,13 +8,13 @@ const selectFileBtn = document.getElementById('select-file-btn');
 let selectedFile = null;
 
 selectFileBtn.addEventListener('click',function(e){
-    dragedFile.click();
+draggedFile.click();
 });
-dragedFile.addEventListener('change',function(e){
+draggedFile.addEventListener('change',function(e){
     handledFile(e.target.files[0]);
 });
 function handledFile(file){
-    if(file && file.type === 'application/pdf'){
+    if(file && (file.type === 'application/pdf' || file.type === 'image/jpeg')){
         selectedFile = file;
         fileInfo.textContent = `Selected File : ${file.name}`;
         submitBtn.disabled = false;
@@ -27,6 +27,22 @@ function handledFile(file){
 
 submitBtn.addEventListener('click', function(){
     if(selectedFile){
-        alert(`Submited File ${selectedFile.name}`);
+        alert(`Submitted File ${selectedFile.name}`);
     }
+});
+
+
+dragDrop.addEventListener('dragover', function(e){
+    e.preventDefault();
+    dragDrop.classList.add('drag-over');
+});
+dragDrop.addEventListener('dragleave', function(e){
+    e.preventDefault();
+    dragDrop.classList.remove('drag-over');
+});
+dragDrop.addEventListener('drop',function(e){
+    e.preventDefault();
+    dragDrop.classList.remove('drag-over');
+    const file = e.dataTransfer.files[0];
+    handledFile(file);
 });

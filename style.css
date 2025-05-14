@@ -1,11 +1,25 @@
 body{
-    /* background-color: rgb(36, 34, 34); */
-    background: linear-gradient(to right,#387478, #243642);
+
+  background: linear-gradient(45deg, #222831,#393E46,#948979);
+    background-size: 300% 300%;
+    animation: color 10s ease-in-out infinite;
+    max-width: 1440px;
+}
+@keyframes color{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
 }
 #project-box{
-    display: grid;
-    grid-template-columns: 4fr 4fr 4fr;
-    
+     display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 10px;
 }
 h1{
     color: white;
@@ -18,20 +32,80 @@ h1{
     background-color: aliceblue;
     font-size: larger;
     font-weight: bold;
-    /* display: grid; */
-    /* grid-template-columns: 2fr 2fr 2fr; */
-    /* grid-gap: 10px; */
+    color: black;
+    text-align: left;
     width: 400px;
     height: 40px;
     padding: 15px 15px;
     border-radius: 5px;
     margin: 5px;
+    box-shadow: 7px 5px 5px black;
+    transition: transform 0.4s ease-in-out;
+}
+.pro1:hover{
+    transform: scale(1.1);
 }
 .pro1 a{
     text-decoration: none;
     color: black;
     
 }
+
 .pro1 a span:hover{
     color: red;
+}
+
+/* Media Query for tablets and small screens */
+
+@media screen and (max-width: 1024px) {
+  body {
+    /* background: rgb(65, 230, 65); */
+  }
+
+  #project-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pro1{
+   
+    width: 430px;
+    height: 40px;
+    
+}
+}
+@media screen and (max-width: 768px) {
+  body {
+    background: linear-gradient(to right,#222831,#948979);
+  }
+
+  #project-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+   .pro1{
+   
+    width: 320px;
+    height: 20px;
+    font-size: medium;
+    
+}
+}
+
+/* Media Query for mobile screens */
+@media screen and (max-width: 425px) {
+  body {
+    background: linear-gradient(to right,#222831,#948979);
+  }
+
+  #project-box {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pro1{
+    width: 150px;
+    height: 30px;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: small;
+  }
+  .pro1:hover{
+    transform: scale(1);
+}
 }
